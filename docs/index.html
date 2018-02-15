@@ -42,6 +42,21 @@
     <br>
     <img src="img/3.png">
 </p>
+
+<h1>Installation</h1>
+Using bower:
+<pre>
+    <xmp>
+        bower install jquery-editabletable
+    </xmp>
+</pre>
+Or download/clone code from github repo
+<pre>
+    <xmp>
+        https://github.com/dasatti/jquery-editable-table
+    </xmp>
+</pre>
+
 <h1>
     Live Examples
 </h1>
@@ -128,8 +143,8 @@ Start with an ordinary HTML table as below
            //execute the callback to inform editable table about update status, For ajax place it in success callback
            callback({
                success : 1 //1 or 0 | required
-               error : ["Error 1", "Error 2"] //Put errors here is there was some error in update | optional
-               errorBag : {
+               errors : ["Error 1", "Error 2"] //Put errors here is there was some error in update | optional
+               errorsBag : {
                    // Laravel 5 standard ErrorBag response | optional
                    field_1_name : ["Error 1", "Error 2"],
                    field_2_name : ["Error 1", "Error 2"]
@@ -139,8 +154,8 @@ Start with an ordinary HTML table as below
        //Delete callback
        onDelete : function(recordId, row, callback){
            success : 1, //1 or 0 | required
-           error : ["Error 1", "Error 2"] //Put errors here is there was some error in update | optional
-           errorBag : {
+           errors : ["Error 1", "Error 2"] //Put errors here is there was some error in update | optional
+           errorsBag : {
                    // Laravel 5 standard ErrorBag response | optional
                    field_1_name : ["Error 1", "Error 2"],
                    field_2_name : ["Error 1", "Error 2"]
