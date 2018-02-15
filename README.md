@@ -10,6 +10,15 @@ Or clone or download code from github repo
 ```
   https://github.com/dasatti/jquery-editable-table
 ```
+## Example
+Given an ordinary HTML table like this
+![HTML Table](https://github.com/dasatti/jquery-editable-table/blob/master/docs/img/1.png)
+
+The plugin will convert it into following
+![JQuery Editable Table](https://github.com/dasatti/jquery-editable-table/blob/master/docs/img/2.png)
+
+Validation errors coming from server side are also supported
+![JQuery Editable Table](https://github.com/dasatti/jquery-editable-table/blob/master/docs/img/3.png)
 
 ## Usage
 ### HTML
@@ -29,8 +38,8 @@ Or clone or download code from github repo
        //configuration variables will go here, all of them are optional
        //Update callback
        onUpdate : function(data, callback){
-           //perform ajax or what ever with the data
-           //execute the callback to inform editable table about update status, For ajax place it in success callback
+           //perform what ever you want with the data, usually ajax call to server to update record
+           //execute the callback to inform editable table about update status, For ajax place following in success callback
            callback({
                success : 1 //1 or 0 | required
                errors : ["Error 1", "Error 2"] //Put errors here is there was some error in update | optional
@@ -43,6 +52,7 @@ Or clone or download code from github repo
        },
        //Delete callback
        onDelete : function(recordId, row, callback){
+           //Your delete code here, usually ajax call to server
            success : 1, //1 or 0 | required
            errors : ["Error 1", "Error 2"] //Put errors here is there was some error in update | optional
            errorsBag : {
