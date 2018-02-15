@@ -2,12 +2,17 @@
   "name" : "jquery-editable-table",
   "version" : "0.0.1",
   "description" : "This is a jQuery plugn which turns ordinary table into and editable rid where you can edit rows quickly",
+  "homepage" : "https://github.com/dasatti/jquery-editable-table",
   "authors" : [
     "Danish Altaf Satti <dasatti@gmail.com>"
   ],
-  "license": "MIT",
+  "license": "GNU",
   "dependencies": {
     "jquery": ">=1.7.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:dasatti/jquery-editable-table.git"
   },
   "keywords" : [
     "jquery",
