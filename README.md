@@ -33,8 +33,8 @@ Or clone or download code from github repo
            //execute the callback to inform editable table about update status, For ajax place it in success callback
            callback({
                success : 1 //1 or 0 | required
-               error : ["Error 1", "Error 2"] //Put errors here is there was some error in update | optional
-               errorBag : {
+               errors : ["Error 1", "Error 2"] //Put errors here is there was some error in update | optional
+               errorsBag : {
                    // Laravel 5 standard ErrorBag response | optional
                    field_1_name : ["Error 1", "Error 2"],
                    field_2_name : ["Error 1", "Error 2"]
@@ -44,8 +44,8 @@ Or clone or download code from github repo
        //Delete callback
        onDelete : function(recordId, row, callback){
            success : 1, //1 or 0 | required
-           error : ["Error 1", "Error 2"] //Put errors here is there was some error in update | optional
-           errorBag : {
+           errors : ["Error 1", "Error 2"] //Put errors here is there was some error in update | optional
+           errorsBag : {
                    // Laravel 5 standard ErrorBag response | optional
                    field_1_name : ["Error 1", "Error 2"],
                    field_2_name : ["Error 1", "Error 2"]
