@@ -4,7 +4,7 @@ JQuery Editable tables is a JQuery based javascript library which turns ordinary
 ## Installation:
 Using bower:
 ```
-  bower install jquery-editabletable
+  bower install jquery-editable-table
 ```
 Or clone or download code from github repo
 ```
