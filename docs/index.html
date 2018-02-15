@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery Editable Tables</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="../dist/jquery.editableTable.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#table1').editableTable({
+
+            });
+        })
+    </script>
+</head>
+<body>
+
+<h1 align="center">JQuery Editable Tables</h1>
+<p>
+    JQuery Editable tables is a JQuery based javascript library which turns ordinary HTML tables into editable row. It
+    allows users to quickly edit records in the table and save the data into database. It requires JQuery, supports but
+    does not required bootstrap and font-awesome icons and Laravel MessageBag response for errors.
+</p>
+<h1>
+    Examples
+</h1>
+<p>
+    For example, Given an ordinary HTML table like
+    <br>
+    <img src="img/1.png">
+    <br>
+    Is turned into
+    <br>
+    <img src="img/2.png">
+    <br>
+    Validation errors on update and delete are also supported
+    <br>
+    <img src="img/3.png">
+</p>
+<h1>
+    Live Examples
+</h1>
+Start with an ordinary HTML table as below
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Phone Number</th>
+            <th>Age</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr data-editable-id="1">
+            <td data-editable="name">Danish</td>
+            <td data-editable="phone">12345678</td>
+            <td data-editable="age" data-editable-type="number">30</td>
+            <td></td>
+        </tr>
+        <tr data-editable-id="2">
+            <td data-editable="name">Ahmed</td>
+            <td data-editable="phone">987654321</td>
+            <td data-editable="age" data-editable-type="number">35</td>
+            <td></td>
+        </tr>
+    </tbody>
+
+</table>
+
+<p>
+    After applying Editable Tables Plugin it turns into following :
+
+<table border="1" id="table1">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Phone Number</th>
+        <th>Age</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr data-editable-id="1">
+        <td data-editable="name">Danish</td>
+        <td data-editable="phone">12345678</td>
+        <td data-editable="age" data-editable-type="number">30</td>
+        <td></td>
+    </tr>
+    <tr data-editable-id="2">
+        <td data-editable="name">Ahmed</td>
+        <td data-editable="phone">987654321</td>
+        <td data-editable="age" data-editable-type="number">35</td>
+        <td></td>
+    </tr>
+    </tbody>
+
+</table>
+</p>
+<h2>Usage</h2>
+<h3>HTML:</h3>
+<pre>
+    <xmp>
+
+  <table id="table">
+      <tr>
+          <td data-editable="name">Danish</td>
+          <td data-editable="phone">923125511678</td>
+          <td data-editable="age" data-editable-type="number">30</td>
+          <td><!-- Extra column for buttons--></td>
+      </tr>
+  </table>
+    </xmp>
+</pre>
+<h3>JS:</h3>
+<pre>
+    <xmp>
+   $('#table').editableTable({
+       //configuration variables will go here, all of them are optional
+       //Update callback
+       onUpdate : function(data, callback){
+           //perform ajax or what ever with the data
+           //execute the callback to inform editable table about update status, For ajax place it in success callback
+           callback({
+               success : 1 //1 or 0 | required
+               error : ["Error 1", "Error 2"] //Put errors here is there was some error in update | optional
+               errorBag : {
+                   // Laravel 5 standard ErrorBag response | optional
+                   field_1_name : ["Error 1", "Error 2"],
+                   field_2_name : ["Error 1", "Error 2"]
+               }
+           })
+       },
+       //Delete callback
+       onDelete : function(recordId, row, callback){
+           success : 1, //1 or 0 | required
+           error : ["Error 1", "Error 2"] //Put errors here is there was some error in update | optional
+           errorBag : {
+                   // Laravel 5 standard ErrorBag response | optional
+                   field_1_name : ["Error 1", "Error 2"],
+                   field_2_name : ["Error 1", "Error 2"]
+               }
+       }
+   });
+
+        </xmp>
+</pre>
+
+
+<h2>Configurations:</h2>
+<pre>
+    <xmp>
+        {
+            labels : false,                 //Enable show labels for edit and delete buttons
+            editLabel : 'Edit',             //Edit button label
+            editBtnClass : 'btn btn-info',  //Edit button class
+            editIcon : 'fa fa-pencil',      //Edit button icon class
+            updateLabel : 'Update',         //Update button label
+            updateIcon : 'fa fa-save',      //Update button icon class
+            deleteLabel : 'Delete',         //Delete button label
+            deleteIcon : 'fa fa-trash',     //Delete button icon class
+            deleteBtnClass : 'btn btn-danger',  //Delete button class
+            editType : 'row',               //Edit mode
+            formInputClass : 'form-control',//Inputs class
+            deleteMsg : 'Are you sure you want to delete this record?', //On delete confirmation message
+            onUpdate : null,                //On update callback
+            onDelete : null,                //On delete callback
+            errorColor : 'red'              //Error messages text color
+        }
+    </xmp>
+</pre>
+</body>
+</html>

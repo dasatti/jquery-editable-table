@@ -1,0 +1,17 @@
+{
+  "name" : "jquery-editable-table",
+  "version" : "0.0.1",
+  "description" : "This is a jQuery plugn which turns ordinary table into and editable rid where you can edit rows quickly",
+  "authors" : [
+    "Danish Altaf Satti <dasatti@gmail.com>"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "jquery": ">=1.7.0"
+  },
+  "keywords" : [
+    "jquery",
+    "datatable",
+    "editable-table"
+  ]
+}
